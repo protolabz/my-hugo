@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  {{- partial "head.html" . -}}
+  <body>
+
+
+    <section class="main">
+      <img src="{{.Site.BaseURL}}/img/background.jpg">
+    </section>
+
+    <section class="wrap_first">
+          <div class="products">
+          <div class="container">
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 items">
+              <div class="col-lg-4 col-md-4 col-sm-4 ">
+                <div class="products_item">
+                  <img src="{{.Site.BaseURL}}/img/spot-cream.jpg">
+                  <h1>Intimate area</h1>
+                  <h3>Lighting cream</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <button>Order Now</button>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 ">
+                <div class="products_item">
+                 <img src="{{.Site.BaseURL}}/img/intimate-cream.jpg" >
+                 <h1>Spot</h1>
+                 <h3>Lighting cream</h3>
+                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+                 <button>Order Now</button>
+               </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-4 ">
+                <div class="products_item">
+                 <img src="{{.Site.BaseURL}}/img/scar-cream.jpg" >
+                  <h1>Scar</h1>
+                  <h3>Lighting cream</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+                  <button>Order Now</button>
+                </div>
+              </div>
+            </div>
+    </div>
+      </div>
+    </section>
+
+    <section class="second_class">
+         <div class="container">
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="img_product">
+                <img src="{{.Site.BaseURL}}/img/ElleevateWebBanner-11.jpg">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="img_product">
+                <img src="{{.Site.BaseURL}}/img/gast-alien-dee-trage-spin-time.jpg" >
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+
+
+   
+  </body>
+</html>
+
+<style type="text/css">
+  section.main{
+    clear: both;
+  }
+  section.main img{
+    width: 100%;
+    height: 550px;
+  }
+  .products_item{
+    text-align: center;
+    margin-top: 2em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 3em;
+  } 
+  .products_item img {
+    max-height: 430px;
+  }
+  .img_product{
+    text-align: center;
+  }
+  .img_product img{
+    width: 100%;
+  }
+  section.wrap_first {
+    clear: both;
+    margin-bottom: 3em !important;
+}
+</style>

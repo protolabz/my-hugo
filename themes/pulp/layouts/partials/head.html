@@ -1,0 +1,191 @@
+<head>
+  <title>
+      {{ if eq .Title .Site.Title }}
+          {{ .Site.Title }}
+      {{ else }}
+          {{ .Title }} - {{ .Site.Title }}
+      {{ end }}
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="{{ .Site.Author }}" />
+  <link rel="shortcut icon" type="image/x-icon" href="/img/{{ .Site.Params.favicon }}">
+
+  <!-- css -->
+  {{ $style := resources.Get "css/style.css" }}
+  {{ $markdown := resources.Get "css/markdown.css" }}
+  {{ $syntaxHighlight := resources.Get "css/syntax-highlight.css" }}
+  {{ $css := slice $style $markdown $syntaxHighlight | resources.Concat "style.css" | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $css.Permalink }}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- custom css -->
+  {{ range .Site.Params.custom_css }}
+  <link rel="stylesheet" href="{{ . }}">
+  {{ end }}
+
+  {{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates */}}
+  {{- template "_internal/opengraph.html" . -}}
+  {{- template "_internal/google_news.html" . -}}
+  {{- template "_internal/schema.html" . -}}
+  {{- template "_internal/twitter_cards.html" . -}}
+
+  <!-- Polyfill for old browsers -->
+  {{ `<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->` | safeHTML }}
+
+  {{ `<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->` | safeHTML }}
+
+  <!-- Analytics -->
+  {{- if and (not .Site.IsServer) .Site.GoogleAnalytics -}}
+  {{ template "_internal/google_analytics_async.html" . }}
+  {{- end -}}
+
+
+</head>
+
+  <div class="header_top">
+          <div class="container">
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+              <div class="col-lg-8 col-md-8 col-sm-8 wrap_1">
+                  <span>Privacy policy&nbsp;&nbsp;&nbsp;|</span>&nbsp;&nbsp;&nbsp;
+                  <span>Refund policy&nbsp;&nbsp;&nbsp;|</span>&nbsp;&nbsp;&nbsp;
+                  <span>Shipping policy&nbsp;&nbsp;&nbsp;</span>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 wrap_2">
+                  <span>Whoole Sale</span>&nbsp;&nbsp;&nbsp;
+                  <span>My account</span>
+              </div>
+            </div>
+          </div>
+    </div> 
+
+    <div class="header_two">
+          <div class="container">
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+              <div class="col-lg-4 col-md-4 col-sm-4 ">
+                  <img src="{{.Site.BaseURL}}/img/live.png" class="live_support">
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 caspah">
+                 <img src="{{.Site.BaseURL}}/img/Caspah.jpg" class="caspah_support">
+
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-4 cart">
+                  <button><i class="fas fa-shopping-cart"></i> My Cart</button>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <nav class="navbar navbar-expand-sm bg-dark">
+      <div class="container">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Salons</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Products</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">About us</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">Testimonial</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" href="#">Faq</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">Blog</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">Article</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">Affiliates</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">Offers</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Site map</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">Contact us</a>
+    </li>
+  </ul>
+  </div>
+</nav>
+
+    <style type="text/css">
+      .col-lg-4{
+        float: left;
+      }
+  .wrap_1{
+    float: left;
+  }
+  .wrap_2{
+    float: left;
+  }
+  .header_top{
+    background-color: #cccbcb;
+    padding-top: 10px;
+    padding-bottom: 35px;
+  }
+  div#profileContainer {
+    clear: both;
+  }
+  .header_two{
+    margin-top: 1.3em;
+    margin-bottom: 1.3em;
+  }
+  body{
+    padding: 0;
+  }
+  img.live_support {
+    width: 70px;
+}
+.caspah{
+  text-align: center;
+}
+img.caspah_support{
+  width: 130px;
+}
+.cart{
+  text-align: right;
+}
+.navbar{
+  clear: both;
+}
+nav ul{
+  width: 100% !important;
+  margin: 0px auto !important;
+      max-width: 100%;
+}
+.navbar ul li a{
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.col-lg-6{
+  float: left;
+}
+</style>
